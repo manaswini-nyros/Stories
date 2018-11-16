@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default class App extends Component {
+export default class Login extends Component {
     constructor(props){
         super(props);
-        this.state={email:'',password:'',find:''};
+        this.state={email:'',password:''};
         this.handleChange=this.handleChange.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
-        this.find=this.find.bind(this);
+        
        
         
     }
@@ -22,52 +22,21 @@ export default class App extends Component {
             this.setState({'password':event.target.value});
         }
     }
-    handleSubmit(event){
-        
-        event.preventDefault();
-       
-        var emailpattern=/^manaswini@gmail.com$/;
-
-        
-
-        if (emailpattern.match(this.state.email)) {
-            var userDetails={
-                email:this.state.email,
-                password:this.state.password
-            }
-         console.log(userDetails);
-            axios.post('http://10.90.90.110:3000/passport',userDetails).then(res=>{
-                console.log(res.userDetails);
-                if (res.data.status === 'failed') {
-                    alert('wrong admin username');
-                }else{
-                    alert('success');
-                }
-            })
-        }else{
-            alert('enter valid details');
-        }
-            
+     handleSubmit(event){
+       event.preventDefault();
+       var admindetails={
+        email:this.state.email,
+        password:this.state.password
+       }
+       axios.post('http://10.90.90.110:3000/Login',admindetails).then(res=>{
+        console.log(res.data)
+       })
     }
-        find(event){
-        event.preventDefault();
-        if (this.state.find==='') {
-            alert('required');
-        }else{
-            axios.post('http://10.90.90.110:3000/passport',{email:this.state.find}).then(res=>{
-                  if(res.data.status === 'success'){
-                    
-                this.setState({find:res.data.reguser});
+   
 
-            }
-            console.log(this.state.find);
-            })
-        }
-    }
-
-
-  render() {
-    return (
+  
+  render() {
+    return (
          <div class="container">
          <div class="col-sm-6 col-sm-offset-3">
 
@@ -82,7 +51,7 @@ export default class App extends Component {
                   <input type="password" class="form-control" name="password" onChange={this.handleChange} />
              </div>
    
-                <button type="submit" class="btn btn-warning btn-lg" onClick={this.find}>Login</button>
+                <button type="submit" class="btn btn-warning btn-lg" >Login</button>
             </form>
                 <hr/>
                <p>Or go <a href="/">home</a></p>

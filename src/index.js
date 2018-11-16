@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import profile from './components/profile';
-import signup from './components/signup';
+import Signup from './components/signup';
 import './index.css';
 import App from './App';
 import Login from './components/Login';
@@ -11,7 +11,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
    <Router>
    <div><Route path="/Login" component={Login}/><Route exact path="/" component={App}/>
-    <Route path="/signup" component={signup}/></div>
+    <Route path="/signup" component={Signup}/></div>
    </Router>
    
  
