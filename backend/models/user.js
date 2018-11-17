@@ -1,12 +1,5 @@
-// load the things we need
 var mongoose = require('mongoose');
-
-
-
-
-
-
-var userSchema = mongoose.Schema({
+var user = new mongoose.Schema({
 
     
         email        : {type:String},
@@ -18,4 +11,4 @@ var userSchema = mongoose.Schema({
 
 
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('user', user);

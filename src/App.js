@@ -5,11 +5,7 @@ import signup from './components/signup';
 
 
  export default class App extends Component {
-
-
-
-
-  render() {
+ render() {
     return (
  
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -30,7 +26,7 @@ import signup from './components/signup';
                     <li><a href="#">POLITICS</a></li>
                     <li><a href="#">DESIGN</a></li>
                     <li><a href="#">HEALTH</a></li>
-                 
+                   
    
     </ul>
     </div>

@@ -6,12 +6,17 @@ import Signup from './components/signup';
 import './index.css';
 import App from './App';
 import Login from './components/Login';
+import Profile from './components/profile';
+import Post from './components/post';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
    <Router>
    <div><Route path="/Login" component={Login}/><Route exact path="/" component={App}/>
-    <Route path="/signup" component={Signup}/></div>
+    <Route path="/signup" component={Signup}/>
+    <Route path="/Profile" component={Profile}/>
+    <Route path='/Post' component={Post}/>
+    </div>
    </Router>
    
  
