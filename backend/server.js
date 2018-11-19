@@ -34,7 +34,8 @@ app.post('/Poststories',function(req,res){
   stories.create({title:req.body.title,
                      category:req.body.category,
                      description:req.body.description,
-                     story:req.body.story},function(err,data){
+                     story:req.body.story,
+                     storyimage:req.body.storyimage},function(err,data){
     if(err){
         res.send('story not posted');
     }else{
@@ -46,6 +47,60 @@ app.post('/Poststories',function(req,res){
     }
   })
 })
+app.post('/',(req,res)=>{
+
+    stories.find(function(err, data){
+
+        if(err){
+
+            res.send('no stories')
+
+        }else{
+
+            
+            res.json({
+                status:"success",
+                story:data
+            });
+            
+        }
+
+    })
+
+})
+app.post('/singleStory', (req,res)=>{
+    
+    stories.findOne({_id:req.body.get_id}, (err,data)=>{
+
+        if(err){
+
+            res.send("No data found");
+
+        }else{
+
+            console.log(data);
+
+            res.json({
+
+
+
+                status:"success",
+
+                singleStory:data
+
+            });
+        }
+
+
+    })
+
+
+
+})
+
+   
+
+
 app.listen(3002, function () {
       console.log('app listening on port 3002');
 })

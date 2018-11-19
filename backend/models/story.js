@@ -3,10 +3,10 @@ var stories = new mongoose.Schema({
 
     
         title        :{type:String},
-        category     :{type:String},
+       
         description  :{type:String},
-        story        :{type:String}
-  
+        story        :{type:String},
+       
 
 });
 
